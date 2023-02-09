@@ -60,7 +60,7 @@ id = "UA-00000000-0"
 
 [languages]
 [languages.en]
-title = "EvoIgroup"
+title = "EvoIGroup"
 description = "Evolutionary Intelligence Group"
 languageName ="English"
 # Weight used for sorting.

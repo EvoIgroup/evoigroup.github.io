@@ -8,5 +8,4 @@ menu:
     weight: 10
 ---
 
-
-
+We divide all publications into four categories： EvoI for Network Sciences (NS), EvoI for Machine Learning (ML), EvoI for Optimization (OP), and EvoI for Applications (AP).

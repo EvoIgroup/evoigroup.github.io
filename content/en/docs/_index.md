@@ -17,7 +17,7 @@ Tag descriptions: All publications or highlights are given the following tags.
 | Network Sciences      |    Hypergraphs    | NS-HG  |
 | Network Sciences      |    Causal Inference    |  NS-CI |
 | Network Sciences      |    Community Detection    |  NS-CD |
-| Network Sciences      |    Higher Order Networks    |  NS-HN |
+| Network Sciences      |    Network Robustness    |  NS-NB |
 | Network Sciences      |   Influence Maximization      |  NS-IM |
 | Network Sciences      |    Network Reconstruction    | NS-NR  |
 | Machine Learning   |    Auto Learning     |    ML-AL  |

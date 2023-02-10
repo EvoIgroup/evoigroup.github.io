@@ -3,7 +3,7 @@ title: "Network Sciences "
 linkTitle: "Network Sciences "
 weight: 1
 description: >
-  You can find publications on EvoI for Network Sciences, including Hypergraphs(NS-HG), Causal Inference (NS-CI), Community Detection (NS-CD), Higher Order Networks (NS-HN), Influence Maximization (NS-IM), and Network Reconstruction (NS-NR).
+  You can find publications on EvoI for Network Sciences, including Hypergraphs(NS-HG), Causal Inference (NS-CI), Community Detection (NS-CD), Network Robustness (NS-NB), Influence Maximization (NS-IM), and Network Reconstruction (NS-NR).
 Tags: [NS]
 ---
 

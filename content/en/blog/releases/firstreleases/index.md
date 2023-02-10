@@ -1,8 +1,8 @@
 ---
 date: 2023-02-10
-title: "One Paper accepted by IEEE CIM"
-linkTitle: "One Paper accepted by IEEE CIM"
-description: "One Paper accepted by IEEE CIM"
+title: "【论文分享】用于社交网络中影响力最大化的多转换进化框架"
+linkTitle: "【论文分享】用于社交网络中影响力最大化的多转换进化框架"
+description: "【论文分享】用于社交网络中影响力最大化的多转换进化框架"
 author: Chao Wang (xiaofengxd@126.com)
 Tags: ["NS-IM", "OP-TO"]
 ---
@@ -29,6 +29,7 @@ Influence maximization is a crucial issue for mining the deep information of soc
 {{< imgproc framework Fill "1000x500" >}}
 The outline of MTEFIM for bi-transformation IM.
 {{< /imgproc >}}
+
 
 ## Datasets:
 

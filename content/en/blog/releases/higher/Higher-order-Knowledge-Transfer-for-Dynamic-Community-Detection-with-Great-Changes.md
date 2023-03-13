@@ -3,8 +3,7 @@ date: 2023-03-13
 title: "Higher-order Knowledge Transfer for Dynamic Community Detection with Great Changes"
 linkTitle: "One Paper accepted by IEEE TEVC"
 author: Huixin Ma, Kai Wu, Handing Wang, and Jing Liu
-description: >
-  Recently, we have one paper entitle "Higher-order Knowledge Transfer for Dynamic Community Detection with Great Changes" accepted by the IEEE TEVC.
+description: >"Recently, we have one paper entitle "Higher-order Knowledge Transfer for Dynamic Community Detection with Great Changes" accepted by the IEEE TEVC."
 Tags: ["OP-TO"]
 ---
 

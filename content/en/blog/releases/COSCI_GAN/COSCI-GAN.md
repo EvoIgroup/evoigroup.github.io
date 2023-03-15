@@ -1,7 +1,8 @@
 ---
-title: "Generating multivariate time series with COmmon Source CoordInated GAN (COSCI-GAN)"
-linkTitle: "Generating multivariate time series with COmmon Source CoordInated GAN (COSCI-GAN)"
 date: 2023-3-12
+title: "【论文分享】Generating multivariate time series with COmmon Source CoordInated GAN (COSCI-GAN)"
+linkTitle: "【论文分享】Generating multivariate time series with COmmon Source CoordInated GAN (COSCI-GAN)"
+description: "【论文分享】Generating multivariate time series with COmmon Source CoordInated GAN (COSCI-GAN)"
 author: Beining Zhang(zhangbeiningxidian@qq.com)
 Tags: ["AP-TS"]
 ---

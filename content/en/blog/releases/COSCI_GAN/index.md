@@ -7,7 +7,7 @@ author: Beining Zhang(zhangbeiningxidian@qq.com)
 Tags: ["AP-TS"]
 ---
 
-# **Title**
+# **Generating multivariate time series with COmmon Source CoordInated GAN (COSCI-GAN)**
 
 |    Title     | Generating multivariate time series with COmmon Source CoordInated GAN (COSCI-GAN) |
 | :----------: | ------------------------------------------------------------ |

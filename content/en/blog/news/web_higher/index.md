@@ -106,7 +106,7 @@ Network structure evolves with time in the real world, and the discovery of chan
 
 在讲HoNMI之前，我们要先介绍一下NMI这个目标函数。NMI全称Normalized mutual information，翻译过来就是标准化互信息，在我理解，NMI实际上就是衡量两个不同网络的社团结构的相似度的一个指标，它的公式我放在下面，具体可以去看原文，或者在“An evolutionary multi-objective approach for community discovery in dynamic networks”这篇论文里也有更详细的介绍。
 
-{{< imgproc NMI Fill "268x74" >}}
+{{< imgproc NMI Fill "536 x 148" >}}
 NMI公式
 {{< /imgproc >}}
 

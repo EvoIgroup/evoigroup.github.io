@@ -4,7 +4,7 @@ title: "One Paper accepted by IEEE TEVC"
 linkTitle: "One Paper accepted by IEEE TEVC"
 description: "Recently, we have one paper entitle "Higher-order Knowledge Transfer for Dynamic Community Detection with Great Changes" accepted by the IEEE TEVC."
 author: Huixin Ma, Kai Wu, Handing Wang, and Jing Liu
-Tags: [OP-TO"]
+Tags: ["OP-TO"]
 ---
 
 # Higher-order Knowledge Transfer for Dynamic Community Detection with Great Changes

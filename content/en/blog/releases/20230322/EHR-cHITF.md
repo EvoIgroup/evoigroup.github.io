@@ -37,12 +37,16 @@ Non-negative tensor factorization has been shown a practical solution to automat
 
 非负张量CP分解由于其高度的可解释性和保持高阶相互作用的能力应用于表型提取中。下图展示了一个使用CP分解的表型过程的例子。模型的输入是由三个模态组成的张量：病人，诊断和药物。输出是秩一张量的加权和。每个秩一张量由三个因子向量的外积组成，这三个因子向量是通过求解三个模态的优化问题得到的。这些因子向量可以通过模式组织成因子矩阵（权重λ已被吸收到病人因子矩阵中）。
 
-![](https://files.mdnice.com/user/41329/623a0fdd-45b7-40cc-aa39-d1d14fecc380.png)
+{{< imgproc CP-factorization-medication Fill "1191x666" >}}
+CP-factorization-medication
+{{< /imgproc >}}
 
 
 用数学公式可表示为：
 
-![](https://files.mdnice.com/user/41329/3bf6c413-68e4-4b26-be73-cc965ae22b22.png)
+{{< imgproc CP-factorization-math Fill "544x83" >}}
+CP-factorization-math
+{{< /imgproc >}}
 
 
 其中U(1),...U(n)是不同模态的因子矩阵。
@@ -59,13 +63,17 @@ Non-negative tensor factorization has been shown a practical solution to automat
 
 ## HITF
 
-在介绍cHITF之前，必须先回顾一下HITF。HITF旨在发现**边缘化观测下不同模态项目之间的不可观测对应关系**。在普通的CP分解中，因子可以通过最小化重构误差或最大化输入张量的似然来估计。然而，在HITF的设定中，我们只观察到高阶相互作用张量的边缘化。因此，我们通过最大化边缘化的可能性来求解因子，而不是张量X本身。为此，我们首先将同样的边缘化应用于重构，得到沿第n维的边缘化$\hat{v}_n$如下：
+在介绍cHITF之前，必须先回顾一下HITF。HITF旨在发现**边缘化观测下不同模态项目之间的不可观测对应关系**。在普通的CP分解中，因子可以通过最小化重构误差或最大化输入张量的似然来估计。然而，在HITF的设定中，我们只观察到高阶相互作用张量的边缘化。因此，我们通过最大化边缘化的可能性来求解因子，而不是张量X本身。为此，我们首先将同样的边缘化应用于重构，得到沿第n维的边缘化vn如下：
 
-![](https://files.mdnice.com/user/41329/3117e1ba-1cc6-4f9d-9e0c-52d39f61855c.png)
+{{< imgproc Vn-math Fill "393x79" >}}
+Vn-math
+{{< /imgproc >}}
 
 令V表示一组N个观测矩阵，每个观测矩阵对应一个特定的模态。我们假设观测矩阵是通过边缘化描述模态间相互作用的不可观测的高阶张量生成的。作为示例，下图描述了EHR中具有两种模态的HITF模型：用药处方（medication prescriptions）和诊断代码（diagnosis codes）。我们观察两个矩阵：患者-药物（patient-by-medication）矩阵V ( 1 )和患者-诊断（patient-by-diagnosis）矩阵V ( 2 )，分别记录每个患者的处方药物和诊断代码。可以合理地假设这两种模式之间存在某种对应关系——根据某些诊断向患者开出药物。**因此，我们假设存在一个具有N + 1个模态的高阶隐相互作用张量X，描述模态间的对应关系，并通过边缘化隐相互作用张量得到观测矩阵V。**
 
-![](https://files.mdnice.com/user/41329/bdb0f8e0-dc10-4156-9d3b-928872de176a.png)
+{{< imgproc HITF Fill "991x471" >}}
+HITF
+{{< /imgproc >}}
 
 ## cHITF
 
@@ -73,25 +81,29 @@ Non-negative tensor factorization has been shown a practical solution to automat
 
 其中，诊断方式（Dx）在临床数据中起着核心作用，因为药物和液体大多是由诊断决定的；实验室检测结果异常是反映由病理或诊断引起的异常生化状态的指标。显然，它更容易解释诊断与其他三种模态之间的对应关系。因此，我们假设存在三个隐藏的相互作用张量分别捕获诊断和药物之间、诊断和实验室检测之间以及诊断和输入流体之间的对应关系，我们应用HITF来联合求解每一个相互作用的张量。患者模式是所有子问题中的共享维度(对应于U ( Pt ))因子矩阵)，由于我们以诊断为中心的设计，诊断模式也是共享的；因此，我们在框架中强制要求它们对应的因子矩阵相同。
 
-![](https://files.mdnice.com/user/41329/de40de6b-b3fb-4159-8970-f5427d929c03.png)
-
+{{< imgproc cHITF Fill "1483x490" >}}
+cHITF
+{{< /imgproc >}}
 
 ## 模型的建立与求解
 
 损失函数形式表现为如下：
 
-![](https://files.mdnice.com/user/41329/1777904c-10ef-4277-b889-2a3c72ab3c49.png)
+{{< imgproc min-math Fill "580x290" >}}
+min-math
+{{< /imgproc >}}
 
 其中，M是隐藏的相互作用张量的个数，Km为第m个隐交互张量的组成模态数（在上图中，Km=2,m=1,2,3），
 
 该论文尝试了两种数据分布探究表型分解的效果：泊松分布与高斯分布；
 
+{{< imgproc possion Fill "531x132" >}}
+possion
+{{< /imgproc >}}
 
-![](https://files.mdnice.com/user/41329/858db15e-468a-4081-ac49-55807f157773.png)
-
-
-![](https://files.mdnice.com/user/41329/ca2f60f9-805d-4957-bd3b-a1e6e3b655fc.png)
-
+{{< imgproc gaussian Fill "460x112" >}}
+gaussian
+{{< /imgproc >}}
 
 该论文通过块坐标下降( BCD )方法优化损失函数。具体来说，在U中的潜因子之间进行交替，并在所有其他潜因子固定的情况下更新每个潜因子，使用投影梯度下降来更新潜在因子。
 
@@ -103,15 +115,21 @@ Non-negative tensor factorization has been shown a practical solution to automat
 
 该论文对结果的评估结合了临床专家打分与张量分解获得的表型对应得分，具体表现为：
 
-![](https://files.mdnice.com/user/41329/c85389d7-c40a-4602-b92d-6636d18c9289.png)
+{{< imgproc estimate Fill "539x295" >}}
+estimate
+{{< /imgproc >}}
 
 
 **实验结果**：
 
 
-![](https://files.mdnice.com/user/41329/578f324c-9141-4738-a67b-61df250892f8.png)
+{{< imgproc result1 Fill "1113x593" >}}
+result1
+{{< /imgproc >}}
 
-![](https://files.mdnice.com/user/41329/d1988322-d82d-4a5c-ab3b-25fcfb78ebc9.png)
+{{< imgproc result2 Fill "1220x837" >}}
+result2
+{{< /imgproc >}}
 
 在表2和表3中，每个项目后面的数字是推断的相应分数。由临床医师标注，红色加粗文本中的条目有临床意义，蓝色斜体文本中的条目可能有意义，其余条目无意义。
 
@@ -121,15 +139,22 @@ Non-negative tensor factorization has been shown a practical solution to automat
 
 **实验结果**：
 
-![](https://files.mdnice.com/user/41329/a9ae8ed5-ac79-4180-bd9b-e771f75799ab.png)
+{{< imgproc result3 Fill "587x683" >}}
+result3
+{{< /imgproc >}}
 
 从多模态EHR数据中推断具有临床可解释性和相关性的表型是首要任务，所以该论文还评估了获得的表型的稀疏性和多样性，
 
 多样性的评估指标如下：
 
+{{< imgproc result4 Fill "588x404" >}}
+result4
+{{< /imgproc >}}
 
-![](https://files.mdnice.com/user/41329/ab71b855-e2ad-4807-b325-dff2b4f77503.png)
+{{< imgproc similarity Fill "575x78" >}}
+similarity
+{{< /imgproc >}}
 
-![](https://files.mdnice.com/user/41329/fb852e57-2756-43f2-9d94-f4ea6eca1a25.png)
-
-![](https://files.mdnice.com/user/41329/48762bf7-6d2e-4122-bd36-422015813606.png)
+{{< imgproc jaccsrd Fill "528x86" >}}
+jaccsrd
+{{< /imgproc >}}

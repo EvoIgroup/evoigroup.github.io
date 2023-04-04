@@ -17,23 +17,20 @@ Tags: ["AP-BL"]
 |    Paper     | http://arxiv.org/abs/2204.04797                              |
 |     Code     | https://github.com/LuChang-CS/MTGAN                          |
 
-# 摘要
+## 摘要
 
 With wide applications of electronic health records (EHR), deep learning methods have been adopted to analyze EHR data on various tasks such as representation learning, clinical event prediction, and phenotyping. However, due to privacy constraints, limited access to EHR becomes a bottleneck for deep learning research. Recently, generative adversarial networks (GANs) have been successful in generating EHR data. However, there are still challenges in high-quality EHR generation, including generating time-series EHR and uncommon diseases given imbalanced datasets. In this work, we propose a Multi-label Time-series GAN (MTGAN) to generate EHR data and simultaneously improve the quality of uncommon disease generation. The generator of MTGAN uses a gated recurrent unit (GRU) with a smooth conditional matrix to generate sequences and uncommon diseases. The critic gives scores using Wasserstein distance to recognize real samples from synthetic samples by considering both data and temporal features. We also propose a training strategy to calculate temporal features for real data and stabilize GAN training. Furthermore, we design multiple statistical metrics and prediction tasks to evaluate the generated data. Experimental results demonstrate the quality of the synthetic data and the effectiveness of MTGAN in generating realistic sequential EHR data, especially for uncommon diseases
 
 
-
 随着电子健康记录（EHR）的广泛应用，深度学习方法已被采用在表征学习、临床事件预测和表型等各种任务上分析EHR数据。然而，由于隐私限制，对EHR的有限访问成为深度学习研究的瓶颈。最近，生成对抗网络（GAN）已经成功地生成了EHR数据。然而，高质量的EHR生成仍然存在挑战，包括生成时间序列EHR和给定不平衡数据集的不常见疾病。在这项工作中，我们提出了一种多标签时间序列GAN（MTGAN）来生成EHR数据，同时提高不常见疾病生成的质量。MTGAN的发生器使用具有平滑条件矩阵的门控循环单元（GRU）来生成序列和不常见的疾病。评论家给分数使用瓦瑟斯坦距离识别真正的合成样品通过考虑样本数据和时间特性。我们也提出一个计算实际数据时序特性的培训策略,稳定GAN培训。此外,我们设计多个统计指标来评估和预测任务生成的数据。实验结果证明合成的质量数据和生成现实的顺序MTGAN EHR的有效性的数据,特别是对于罕见疾病。
 
+## 研究背景
 
-
-# 研究背景
-
-## 为什么要生成EHR数据？
+### 为什么要生成EHR数据？
 
 EHR不仅记录了患者的关键临床信息，而且为研究者提供了宝贵的数据资源。研究者可以根据这些EHR数据，对病人和医学概念进行表示学习，预测诊断和死亡率等健康事件，临床笔记分析，隐私保护，以及表型分析等等。一方面，大多数EHR数据不公开，因为它们包含患者的敏感临床信息，如人口统计学特征和诊断。另一方面，一些公开的EHR数据集，包括MIMIC - III和eICU ，样本数量有限，可能不适合大规模深度学习。因此，有限的电子健康档案数据成为数据驱动医疗研究的瓶颈。
 
-## 生成EHR数据的瓶颈？
+### 生成EHR数据的瓶颈？
 
 最近,生成对抗网络(GANs)已成功地生成高质量的图像。相比传统的生成模型,如自编码器和变分自编码器,GANs能够生成更真实的数据。因此,GANs也被应用于生成EHR来缓解有限的数据问题。然而,当生成电子健康档案使用现有的GANs,还有几个挑战:
 
@@ -47,21 +44,19 @@ EHR不仅记录了患者的关键临床信息，而且为研究者提供了宝�
 1
 {{< /imgproc >}}
 
-# 解决办法
+## 解决办法
 
 针对上述三个问题，本文提出了三个解决方案，
 
-- 用GRU生成时序数据。
-- 提出一个平滑条件矩阵来产生不常见的疾病。
-- 不仅仅使用JS散度，而是使用多种统计指标综合进行EHR数据的评估，设计了一个针对罕见疾病的标准化距离。
+用GRU生成时序数据。
+提出一个平滑条件矩阵来产生不常见的疾病。
+不仅仅使用JS散度，而是使用多种统计指标综合进行EHR数据的评估，设计了一个针对罕见疾病的标准化距离。
 
-# 模型架构图
+## 模型架构图
 
 {{< imgproc 2 Fill "1059x548" >}}
 2
 {{< /imgproc >}}
-
-
 
 首先介绍一下模型结构，GAN一般包含生成器和判别器，对于生成器来说，给定一个噪声向量z，首先通过解码噪声向量生成第一次就诊的疾病概率P1，其中σ是sigmoid函数。在有了第一次就诊的概率以后，我们使用门控循环单元GRU进行递归生成数据，上一个时间步生成的就诊概率以及隐层状态成为GRU的输入，然后隐层状态经过一层sigmoid函数生成下一个时间步的就诊概率。
 
@@ -95,7 +90,7 @@ eq6
 
 
 
-# 模型算法
+## 模型算法
 
 {{< imgproc 3 Fill "729x798" >}}
 3
@@ -105,11 +100,11 @@ eq6
 
 
 
-# 实验结果
+## 实验结果
 
 数据集采用了MIMIC3和MIMIC4数据集，这是一个大型、免费可用的数据库，包含来自贝斯以色列女执事医疗中心重症监护室的患者的健康相关数据。
 
-## 合成数据集质量评估
+### 合成数据集质量评估
 
 论文中对比的方法有两种，一种是用于访问级别生成的GAN：medGAN，CTGAN，EMR-WGAN，RDP-CGAN。这些都用于EHR数据生成。另一种用于患者级别生成的GAN：WGAN-GP，TimeGAN，T-CGAN。
 
@@ -127,7 +122,7 @@ eq7
 
 
 
-## 下游任务
+### 下游任务
 
 另外该论文还用合成数据进行了下游任务的实验，在诊断预测、心力衰竭、帕金森疾病预测三个方面。诊断预测是在给定先前 T 次就诊的情况下，它预测 T + 1 次就诊中患者的所有诊断。它是一个**多标签分类**；心力衰竭/帕金森氏病预测：在给定先前 T 次就诊的情况下，预测患者是否会在 T + 1 次就诊时**是否**被诊断为心力衰竭/帕金森氏病。这是一个**二元分类**。
 
@@ -145,6 +140,6 @@ eq7
 6
 {{< /imgproc >}}
 
-# 总结
+## 总结
 
 这篇文章的贡献是：为了应对用GAN生成EHR的挑战，提出了MTGAN来生成罕见疾病的时间序列就诊记录。MTGAN可以记录时间信息，并通过平滑条件矩阵提高EHR中罕见疾病的生成质量。实验结果表明，由MTGAN生成的合成EHR数据不仅具有更好的统计特性，而且在提高多任务预测模型的性能，特别是预测罕见疾病方面，其性能优于最新的GAN模型。然而，这项工作中主要关注生成疾病的GAN模型，即多标签生成，它没有考虑EHR中的其他特征类型，如程序、药物或实验室测试。

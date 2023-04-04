@@ -1,15 +1,11 @@
 ---
-date: 2023-03-05
+date: 2023-04-03
 title: " A QUICK VIEW OF TWO PAPERS ON LMAAS"
 linkTitle: "A QUICK VIEW OF TWO PAPERS ON LMAAS"
-author: Yujian Li
 description: "A QUICK VIEW OF TWO PAPERS ON LMAAS"
+author: Yujian Li
 Tags: ["ML-AL"]
 ---
-
-<div align="center" >
-<font color=LightSkyBlue size="">A QUICK VIEW OF TWO PAPERS ON LMAAS</font>
-</div>
 
 > <font color=Purple size="">DISCLAIMER: When you are reading, I could neither completely confirm nor completely deny details of any personal point of view, prejudice or mistake in this passage, including this sentence, since the mind of mine is always changing so much that even PPO could not be implemented to train myself because of the limitation of the importance sampling, i.e. the person who wrote this passage is definitely not the person who I am when you're viewing this sentence.</font>
 

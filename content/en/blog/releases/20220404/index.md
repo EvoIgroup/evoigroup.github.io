@@ -2,7 +2,7 @@
 date: 2023-04-04
 title: "【论文解析】通过条件GAN生成多标签临床时间序列"
 linkTitle: "【论文解析】通过条件GAN生成多标签临床时间序列"
-description: “【论文解析】通过条件GAN生成多标签临床时间序列”
+description: "【论文解析】通过条件GAN生成多标签临床时间序列"
 author: Shuijing Zhang
 Tags: ["AP-BL"]
 ---

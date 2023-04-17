@@ -8,7 +8,7 @@ Tags: ["NS-IM", "OP-TO"]
 ---
 
 
-| Title        | Multiobjective Multitask Optimization-Neighborhood as a Bridge for Knowledge Transfer |
+| Title        | Multiobjective Multitask Optimization-Neighborhood as a Bridge for Knowledge Transfering |
 | ------------ | ------------------------------------------------------------ |
 | Author       | Xianpeng Wang; Zhiming Dong; Lixin Tang; Qingfu Zhang        |
 | Affiliations | Northeastern University                                      |
